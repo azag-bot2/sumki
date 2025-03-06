@@ -1,0 +1,287 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.filters {
+    width: 250px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    overflow-y: auto;
+    max-height: 100vh;
+}
+
+.filters h2 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+main {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter-btn {
+    padding: 10px 15px;
+    border: none;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: left;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+.filter-btn:hover {
+    background-color: #e9ecef;
+}
+
+.filter-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+.filter-btn.active {
+    background-color: #007bff;
+    color: white;
+}
+
+#products {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.product {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: white;
+    border-radius: 5px;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.product:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.filter-toggle {
+    display: none;
+    padding: 10px 15px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.filter-icon {
+    margin-right: 8px;
+}
+
+.sub-filters {
+    display: none;
+    padding-left: 15px;
+    margin-top: 10px;
+}
+
+.filter-group.active .sub-filters {
+    display: block;
+}
+
+.sub-filter-group {
+    margin-bottom: 15px;
+}
+
+.sub-filter-group h3 {
+    font-size: 14px;
+    margin: 10px 0 5px;
+    color: #666;
+}
+
+.sub-filter-group label {
+    display: block;
+    padding: 5px 0;
+    font-size: 13px;
+    color: #333;
+    cursor: pointer;
+}
+
+.sub-filter-group input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.sub-filter-group input[type="checkbox"]:checked + span {
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* Додаємо нові стилі для слайдера */
+.product-slideshow {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; /* Створюємо квадратний контейнер */
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.slide-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 18px;
+    transition: background 0.3s;
+}
+
+.slide-nav:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.slide-dots {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dot.active {
+    background: white;
+}
+
+.product-info {
+    padding: 10px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .filters {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        bottom: 0;
+        width: 80%;
+        max-width: 250px;
+        background: white;
+        z-index: 1001;
+        transition: all 0.3s ease;
+        height: 100vh;
+        box-shadow: none;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 100px;
+    }
+
+    .filters.active {
+        left: 0;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    }
+
+    .filter-toggle {
+        display: block;
+    }
+
+    main {
+        margin-left: 0;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .product {
+        margin: 10px 0;
+    }
+
+    .sub-filters {
+        padding-left: 10px;
+    }
+    
+    .sub-filter-group label {
+        padding: 8px 0;
+    }
+
+    .product-slideshow {
+        max-width: 100%;
+    }
+    
+    .slide-nav {
+        padding: 8px 12px;
+        font-size: 16px;
+    }
+}

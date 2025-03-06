@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сумки</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Подключаем CSS -->
+</head>
+<body>
+    <div class="container">
+        <button id="filterToggle" class="filter-toggle">
+            <span class="filter-icon">☰</span> Фільтри
+        </button>
+        <aside class="filters">
+            <h2>Категорії</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">Всі</button>
+                <!--  -->
+                <!-- Сумки з підкатегоріями -->
+                <div class="filter-group">
+                    <button class="filter-btn" data-category="сумки">Сумки</button>
+                    <div class="sub-filters">
+                        <!-- Підкатегорія -->
+                        <div class="sub-filter-group">
+                            <h3>Категорія</h3>
+                            <label><input type="checkbox" data-filter="type" value="клатч"> Клатчі</label>
+                            <label><input type="checkbox" data-filter="type" value="рюкзак"> Рюкзаки</label>
+                            <label><input type="checkbox" data-filter="type" value="шопер"> Шопери</label>
+                            <label><input type="checkbox" data-filter="type" value="дорожня"> Дорожні сумки</label>
+                        </div>
+                        
+                        <!-- Колір -->
+                        <div class="sub-filter-group">
+                            <h3>Колір</h3>
+                            <label><input type="checkbox" data-filter="color" value="чорний"> Чорний</label>
+                            <label><input type="checkbox" data-filter="color" value="білий"> Білий</label>
+                            <label><input type="checkbox" data-filter="color" value="червоний"> Червоний</label>
+                            <label><input type="checkbox" data-filter="color" value="бежевий"> Бежевий</label>
+                            <label><input type="checkbox" data-filter="color" value="синій"> Синій</label>
+                        </div>
+                        
+                        <!-- Матеріал -->
+                        <div class="sub-filter-group">
+                            <h3>Матеріал</h3>
+                            <label><input type="checkbox" data-filter="material" value="шкіра"> Шкіра</label>
+                            <label><input type="checkbox" data-filter="material" value="штучна"> Штучна шкіра</label>
+                            <label><input type="checkbox" data-filter="material" value="текстиль"> Текстиль</label>
+                            <label><input type="checkbox" data-filter="material" value="замша"> Замша</label>
+                        </div>
+                        
+                        <!-- Розмір -->
+                        <div class="sub-filter-group">
+                            <h3>Розмір</h3>
+                            <label><input type="checkbox" data-filter="size" value="малий"> Маленькі</label>
+                            <label><input type="checkbox" data-filter="size" value="середній"> Середні</label>
+                            <label><input type="checkbox" data-filter="size" value="великий"> Великі</label>
+                        </div>
+                        
+                        <!-- Знижки -->
+                        <div class="sub-filter-group">
+                            <h3>Знижки/Акції</h3>
+                            <label><input type="checkbox" data-filter="sale" value="sale"> Зі знижкою</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Інші категорії -->
+                <button class="filter-btn" data-category="гаманці">Гаманці</button>
+                <button class="filter-btn" data-category="парасольки">Парасольки</button>
+                <button class="filter-btn" data-category="одяг">Одяг</button>
+            </div>
+        </aside>
+        <main>
+            <h1>Наявність</h1>
+            <div id="products"></div> <!-- Место для списка товаров -->
+        </main>
+    </div>
+    <script src="script.js"></script> <!-- Подключаем JS -->
+</body>
+</html>
